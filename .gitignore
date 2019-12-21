@@ -1,0 +1,6 @@
+# Config
+.env
+
+# Modules
+node_modules/
+
