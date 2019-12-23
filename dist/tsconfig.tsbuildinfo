@@ -394,8 +394,8 @@
         "signature": "e1efaea484a61291a58cc78e807958702942a92ed949606bff6c02f3f0f55a40"
       },
       "../src/bot/commands/stats/stats.ts": {
-        "version": "2b552a0c66596dd3b850f7944ce76d480c3637885a5ad541507773a44caa6076",
-        "signature": "0198bdbfecadac86003c5b882719d6243661d4ebfddc49021cbb59943ea3a257"
+        "version": "33049cc2a64e77704c6b29eaf0de5b14a1caf2531388031fe2b1f9bd1f16f1cb",
+        "signature": "dfb3d1b327541992a76813c5b75f1ff4099c484c6ead073af4d41a77aaf9ed23"
       },
       "../src/bot/inhibitors/blacklist.ts": {
         "version": "389e60088b2a8c1592d58d6fcc003f606e373bec0d23901ac96fb9729f9b685b",
@@ -1193,6 +1193,7 @@
         "../node_modules/moment/moment.d.ts",
         "../node_modules/@types/moment-duration-format/index.d.ts",
         "../node_modules/@types/node/os.d.ts",
+        "../node_modules/@types/node/child_process.d.ts",
         "../node_modules/@types/common-tags/index.d.ts",
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
@@ -1940,6 +1941,7 @@
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
       "../src/bot/commands/stats/stats.ts": [
+        "../node_modules/@types/moment-duration-format/index.d.ts",
         "../node_modules/discord.js/typings/index.d.ts",
         "../node_modules/discord-akairo/src/index.d.ts"
       ],
@@ -2079,13 +2081,13 @@
       "../src/bot/structures/providers/settingsprovider.ts",
       "../src/bot/structures/models/stats.ts",
       "../src/bot/structures/providers/statsprovider.ts",
+      "../src/bot/client/analyticsclient.ts",
       "../src/bot/bot.ts",
       "../node_modules/@types/common-tags/index.d.ts",
       "../src/bot/commands/owner/eval.ts",
       "../src/bot/commands/stats/info.ts",
       "../src/bot/commands/stats/ping.ts",
       "../node_modules/@types/moment-duration-format/index.d.ts",
-      "../src/bot/commands/stats/stats.ts",
       "../src/bot/inhibitors/blacklist.ts",
       "../src/bot/listeners/client/guildcreate.ts",
       "../node_modules/@types/node-emoji/index.d.ts",
@@ -2107,7 +2109,7 @@
       "../node_modules/@types/color-name/index.d.ts",
       "../node_modules/@types/node-fetch/externals.d.ts",
       "../node_modules/@types/node-fetch/index.d.ts",
-      "../src/bot/client/analyticsclient.ts"
+      "../src/bot/commands/stats/stats.ts"
     ]
   },
   "version": "3.6.3"

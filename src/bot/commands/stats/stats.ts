@@ -1,8 +1,9 @@
-import { Command } from 'discord-akairo';
-import { Message, MessageEmbed, User } from 'discord.js';
+import akairo, { Command } from 'discord-akairo';
+import djs, { Message, MessageEmbed, User } from 'discord.js';
 import moment from 'moment';
 import 'moment-duration-format';
 import os from 'os';
+import childProcess from 'child_process';
 import { stripIndents } from 'common-tags';
 
 export default class StatsCommand extends Command {
@@ -17,7 +18,7 @@ export default class StatsCommand extends Command {
         });
     }
 
-    public async exec(message: Message): Promise<Message | Message[]> {
+    public async exec(message: Message): Promise<void> {
         let owners: User[] = [];
         for (const id of this.client.ownerID) owners.push(await this.client.users.fetch(id));
 
@@ -40,6 +41,16 @@ export default class StatsCommand extends Command {
             .setFooter(`Made by ${owners.map(u => u.tag).join(' and ')}`)
             .setTimestamp(Date.now());
 
-        return message.util!.send(embed);
+            
+        childProcess.exec('git rev-parse HEAD', {  cwd: process.cwd() }, (error, stdout) => {
+            if (error) return message.util!.send(embed);
+            embed.addField('\> Version', stripIndents`\`\`\`js
+                ${stdout.replace('\n', '')}
+                Node: ${process.version}
+                D.JS ${djs.version}
+                Akairo: ${akairo.version}
+            \`\`\``);
+            return message.util!.send(embed);
+        });
     }
 }

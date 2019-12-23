@@ -1,13 +1,21 @@
 "use strict";
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
+    result["default"] = mod;
+    return result;
+};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const discord_akairo_1 = require("discord-akairo");
-const discord_js_1 = require("discord.js");
+const discord_akairo_1 = __importStar(require("discord-akairo"));
+const discord_js_1 = __importStar(require("discord.js"));
 const moment_1 = __importDefault(require("moment"));
 require("moment-duration-format");
 const os_1 = __importDefault(require("os"));
+const child_process_1 = __importDefault(require("child_process"));
 const common_tags_1 = require("common-tags");
 class StatsCommand extends discord_akairo_1.Command {
     constructor() {
@@ -42,7 +50,17 @@ class StatsCommand extends discord_akairo_1.Command {
             \`\`\``)
             .setFooter(`Made by ${owners.map(u => u.tag).join(' and ')}`)
             .setTimestamp(Date.now());
-        return message.util.send(embed);
+        child_process_1.default.exec('git rev-parse HEAD', { cwd: process.cwd() }, (error, stdout) => {
+            if (error)
+                return message.util.send(embed);
+            embed.addField('\> Version', common_tags_1.stripIndents `\`\`\`js
+                ${stdout.replace('\n', '')}
+                Node: ${process.version}
+                D.JS ${discord_js_1.default.version}
+                Akairo: ${discord_akairo_1.default.version}
+            \`\`\``);
+            return message.util.send(embed);
+        });
     }
 }
 exports.default = StatsCommand;
