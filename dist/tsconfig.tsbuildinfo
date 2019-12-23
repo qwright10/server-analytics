@@ -366,12 +366,20 @@
         "signature": "78c175fa3e6e0571a652aa5f6055911b88111c1b6ef36157154fd202a100d74f"
       },
       "../src/bot/client/analyticsclient.ts": {
-        "version": "e3261057c93d760a554e00c12c0e71b4d43a4ebc84c8c3e9e3674a0a9b0a95f1",
-        "signature": "4924b507b901f118a4d37857498734f2b86f9bd38ad411b44995991b1989f7cb"
+        "version": "ad9e4e2203af2ef65f49046fc198c1c9667cc55ff268e82e08d832c0f922d280",
+        "signature": "0030cc37980dd138d55f0e13abc20a3b8ddf748bb57a2ed62d4c76f44bb3171e"
       },
       "../src/bot/bot.ts": {
         "version": "05ad9e7bed05c7bad954061b02134c279d067e03a968963083b2c3a2b2987a79",
         "signature": "0e7c6f172815224902d2b780918250d131abb33ddc0f2e042ab423db53f72370"
+      },
+      "../node_modules/@types/common-tags/index.d.ts": {
+        "version": "3b93231babdb3ee9470a7e6103e48bf6585c4185f96941c08a77e097f8f469ae",
+        "signature": "3b93231babdb3ee9470a7e6103e48bf6585c4185f96941c08a77e097f8f469ae"
+      },
+      "../src/bot/commands/owner/eval.ts": {
+        "version": "ad2d44bdba1cfb0d68202418d018ad9c6d4d1d7463513ca5b047545660c20ee9",
+        "signature": "8685a55b01026b025aff56f6fc50bb90d26d974a374b34fa2d5ded8bf5e13005"
       },
       "../src/bot/commands/stats/info.ts": {
         "version": "22eb76438158ed6138a26078bfdb862595b275135e0a42ef1817232d88be7fa1",
@@ -380,6 +388,14 @@
       "../src/bot/commands/stats/ping.ts": {
         "version": "21653c7c9091abd46cfb769786368956fac4fb1f188a49e15cd830fcf1cb816e",
         "signature": "5349534b26ff7bb5d3facef3d1fbd709a8b380318ddaff223aad691d02d2cb87"
+      },
+      "../node_modules/@types/moment-duration-format/index.d.ts": {
+        "version": "e1efaea484a61291a58cc78e807958702942a92ed949606bff6c02f3f0f55a40",
+        "signature": "e1efaea484a61291a58cc78e807958702942a92ed949606bff6c02f3f0f55a40"
+      },
+      "../src/bot/commands/stats/stats.ts": {
+        "version": "2b552a0c66596dd3b850f7944ce76d480c3637885a5ad541507773a44caa6076",
+        "signature": "0198bdbfecadac86003c5b882719d6243661d4ebfddc49021cbb59943ea3a257"
       },
       "../src/bot/inhibitors/blacklist.ts": {
         "version": "389e60088b2a8c1592d58d6fcc003f606e373bec0d23901ac96fb9729f9b685b",
@@ -394,7 +410,7 @@
         "signature": "a142bf74a83068d1b29064bb590971a28077068abfa90ec412effad9e5b28ceb"
       },
       "../src/bot/listeners/client/message.ts": {
-        "version": "acde7f624996d70a1722f8240bf2c197912164f30948938b934e54a3d2347b65",
+        "version": "7a3b15a9f5d9a33e1200e9ab353e589d658907be8889eb4ea1ab2c658a02331b",
         "signature": "457942957e8890ba586156f96aa2d024997395ca202e96fe3db9f4ec2c147387"
       },
       "../src/bot/listeners/client/ready.ts": {
@@ -1132,6 +1148,21 @@
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
+      "../node_modules/@types/common-tags/index.d.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../src/bot/commands/owner/eval.ts": [
+        "../node_modules/discord-akairo/src/index.d.ts",
+        "../node_modules/discord.js/typings/index.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/common-tags/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
       "../src/bot/commands/stats/info.ts": [
         "../node_modules/discord-akairo/src/index.d.ts",
         "../node_modules/discord.js/typings/index.d.ts",
@@ -1144,6 +1175,25 @@
       "../src/bot/commands/stats/ping.ts": [
         "../node_modules/discord-akairo/src/index.d.ts",
         "../node_modules/discord.js/typings/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@types/moment-duration-format/index.d.ts": [
+        "../node_modules/moment/moment.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../src/bot/commands/stats/stats.ts": [
+        "../node_modules/discord-akairo/src/index.d.ts",
+        "../node_modules/discord.js/typings/index.d.ts",
+        "../node_modules/moment/moment.d.ts",
+        "../node_modules/@types/moment-duration-format/index.d.ts",
+        "../node_modules/@types/node/os.d.ts",
+        "../node_modules/@types/common-tags/index.d.ts",
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
         "../node_modules/@types/node/util.d.ts",
@@ -1864,11 +1914,32 @@
         "../src/bot/structures/providers/statsprovider.ts",
         "../node_modules/discord-akairo/src/index.d.ts"
       ],
+      "../node_modules/@types/common-tags/index.d.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../src/bot/commands/owner/eval.ts": [
+        "../node_modules/discord.js/typings/index.d.ts",
+        "../node_modules/discord-akairo/src/index.d.ts"
+      ],
       "../src/bot/commands/stats/info.ts": [
         "../node_modules/discord.js/typings/index.d.ts",
         "../node_modules/discord-akairo/src/index.d.ts"
       ],
       "../src/bot/commands/stats/ping.ts": [
+        "../node_modules/discord.js/typings/index.d.ts",
+        "../node_modules/discord-akairo/src/index.d.ts"
+      ],
+      "../node_modules/@types/moment-duration-format/index.d.ts": [
+        "../node_modules/moment/moment.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../src/bot/commands/stats/stats.ts": [
         "../node_modules/discord.js/typings/index.d.ts",
         "../node_modules/discord-akairo/src/index.d.ts"
       ],
@@ -2008,23 +2079,22 @@
       "../src/bot/structures/providers/settingsprovider.ts",
       "../src/bot/structures/models/stats.ts",
       "../src/bot/structures/providers/statsprovider.ts",
-      "../src/bot/client/analyticsclient.ts",
       "../src/bot/bot.ts",
+      "../node_modules/@types/common-tags/index.d.ts",
+      "../src/bot/commands/owner/eval.ts",
       "../src/bot/commands/stats/info.ts",
       "../src/bot/commands/stats/ping.ts",
+      "../node_modules/@types/moment-duration-format/index.d.ts",
+      "../src/bot/commands/stats/stats.ts",
       "../src/bot/inhibitors/blacklist.ts",
       "../src/bot/listeners/client/guildcreate.ts",
       "../node_modules/@types/node-emoji/index.d.ts",
-      "../src/bot/listeners/client/ready.ts",
-      "../node_modules/@types/color-name/index.d.ts",
-      "../node_modules/@types/node-fetch/externals.d.ts",
-      "../node_modules/@types/node-fetch/index.d.ts",
       [
         "../src/bot/listeners/client/message.ts",
         [
           {
             "file": "../src/bot/listeners/client/message.ts",
-            "start": 592,
+            "start": 630,
             "length": 5,
             "messageText": "'emoji' is declared but its value is never read.",
             "category": 1,
@@ -2032,7 +2102,12 @@
             "reportsUnnecessary": true
           }
         ]
-      ]
+      ],
+      "../src/bot/listeners/client/ready.ts",
+      "../node_modules/@types/color-name/index.d.ts",
+      "../node_modules/@types/node-fetch/externals.d.ts",
+      "../node_modules/@types/node-fetch/index.d.ts",
+      "../src/bot/client/analyticsclient.ts"
     ]
   },
   "version": "3.6.3"
