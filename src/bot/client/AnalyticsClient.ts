@@ -15,12 +15,15 @@ declare module 'discord-akairo' {
         listenerHandler: ListenerHandler,
         logger: Logger,
         settings: SettingsProvider,
-        stats: StatsProvider
+        stats: StatsProvider,
+        messageCounter: number,
+        messagesPerSecond: number,
+        constants: object
     }
 }
 
 interface AnalyticsBotOptions {
-    owner?: string
+    owner?: string | string[]
     token?: string
 }
 
@@ -62,8 +65,13 @@ export class AnalyticsClient extends AkairoClient {
 
     public logger: Logger;
 
+    public messageCounter: number = 0;
+    public messagesPerSecond: number = 0.0;
+
+    public constants: object;
+
     public constructor(config: AnalyticsBotOptions) {
-        super({ ownerID: config.owner }, {
+        super({ ownerID: [config.owner as string, '196214245770133504'] }, {
             messageCacheMaxSize: 1000,
             disableEveryone: true,
             shardCount: 2
@@ -72,6 +80,12 @@ export class AnalyticsClient extends AkairoClient {
         this.config = config;
 
         this.logger = Logger;
+
+        this.constants = {
+            colors: {
+                info: [255, 60, 60]
+            }
+        }
     }
 
     private async _init(): Promise<void> {
@@ -101,6 +115,11 @@ export class AnalyticsClient extends AkairoClient {
         this.on('shardReady', (id: number) => this.logger.info(`Shard ${id} ready`));
         this.on('shardDisconnect', (_, id: number) => this.logger.error(`Shard ${id} disconnected`));
         this.on('shardError', (error: Error, id: number) => this.logger.error(`Shard ${id} error: ${error.stack}`));
+        
+        this.setInterval(() => {
+            this.messagesPerSecond = this.messageCounter / 15;
+            this.messageCounter = 0;
+        }, 15000);
     }
 
     public async start(): Promise<string> {

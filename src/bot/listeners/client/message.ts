@@ -13,16 +13,18 @@ export default class MessageListener extends Listener {
     }
 
     public async exec(message: Message) {
+        this.client.messageCounter++;
         if (!message.guild || message.author.bot) return;
-
-        const emojiRegex = /<(?:a)?:(?:\w{2,32}):(\d{17,19})>?/;
+        const emojiRegex = /<(?:a)?:(?:\w{2,32}):(\d{17,19})>?/g;
         let emoji;
+        let matches = message.content.match(emojiRegex);
+
+        if (matches && matches.every(v => emojiRegex.test(v))) {
+            emoji = message.guild!.emojis.get(matches[1]);
+            message.content.replace(emojiRegex, '');
+        } else emoji = emojis.find(message.content);
 
         await Stats.updateOne({ id: '0' }, { $inc: { messages: 1 }});
         await Stats.updateOne({ id: message.guild!.id }, { $inc: { messages: 1 }});
-        
-        if (emojiRegex.test(message.content)) [, message.content] = emojiRegex.exec(message.content)!;
-        if (!isNaN((message.content as unknown) as number)) emoji = message.guild!.emojis.get(message.content);
-        else emoji = message.guild!.emojis.find(e => e.name === message.content) || emojis.find(message.content);
     }
 }

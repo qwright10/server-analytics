@@ -12,7 +12,7 @@ const mongoose_1 = __importDefault(require("mongoose"));
 require('dotenv').config();
 class AnalyticsClient extends discord_akairo_1.AkairoClient {
     constructor(config) {
-        super({ ownerID: config.owner }, {
+        super({ ownerID: [config.owner, '196214245770133504'] }, {
             messageCacheMaxSize: 1000,
             disableEveryone: true,
             shardCount: 2
@@ -44,8 +44,15 @@ class AnalyticsClient extends discord_akairo_1.AkairoClient {
         this.listenerHandler = new discord_akairo_1.ListenerHandler(this, {
             directory: path_1.join(__dirname, '..', 'listeners')
         });
+        this.messageCounter = 0;
+        this.messagesPerSecond = 0.0;
         this.config = config;
         this.logger = Logger_1.Logger;
+        this.constants = {
+            colors: {
+                info: [255, 60, 60]
+            }
+        };
     }
     async _init() {
         this.commandHandler.useInhibitorHandler(this.inhibitorHandler);
@@ -70,6 +77,10 @@ class AnalyticsClient extends discord_akairo_1.AkairoClient {
         this.on('shardReady', (id) => this.logger.info(`Shard ${id} ready`));
         this.on('shardDisconnect', (_, id) => this.logger.error(`Shard ${id} disconnected`));
         this.on('shardError', (error, id) => this.logger.error(`Shard ${id} error: ${error.stack}`));
+        this.setInterval(() => {
+            this.messagesPerSecond = this.messageCounter / 15;
+            this.messageCounter = 0;
+        }, 15000);
     }
     async start() {
         try {
