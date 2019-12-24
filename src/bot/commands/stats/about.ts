@@ -8,8 +8,8 @@ import { stripIndents } from 'common-tags';
 
 export default class StatsCommand extends Command {
     public constructor() {
-        super('stats', {
-            aliases: ['stats'],
+        super('about', {
+            aliases: ['about'],
             description: {
                 content: 'Provides stats about Server Analytics.'
             },

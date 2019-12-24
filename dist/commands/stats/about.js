@@ -19,8 +19,8 @@ const child_process_1 = __importDefault(require("child_process"));
 const common_tags_1 = require("common-tags");
 class StatsCommand extends discord_akairo_1.Command {
     constructor() {
-        super('stats', {
-            aliases: ['stats'],
+        super('about', {
+            aliases: ['about'],
             description: {
                 content: 'Provides stats about Server Analytics.'
             },
