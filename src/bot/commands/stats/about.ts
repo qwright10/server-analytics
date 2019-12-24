@@ -19,7 +19,7 @@ export default class StatsCommand extends Command {
     }
 
     public async exec(message: Message): Promise<void> {
-        let owners: User[] = [];
+        const owners: User[] = [];
         for (const id of this.client.ownerID) owners.push(await this.client.users.fetch(id));
 
         const embed = new MessageEmbed()

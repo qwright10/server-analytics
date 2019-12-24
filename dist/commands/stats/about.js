@@ -29,7 +29,7 @@ class StatsCommand extends discord_akairo_1.Command {
         });
     }
     async exec(message) {
-        let owners = [];
+        const owners = [];
         for (const id of this.client.ownerID)
             owners.push(await this.client.users.fetch(id));
         const embed = new discord_js_1.MessageEmbed()
