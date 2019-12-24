@@ -18,7 +18,8 @@ declare module 'discord-akairo' {
         stats: StatsProvider,
         messageCounter: number,
         messagesPerSecond: number,
-        constants: object
+        constants: object,
+        delete(message: Message, m: Message, timout?: number): Promise<void>;
     }
 }
 
@@ -65,13 +66,15 @@ export class AnalyticsClient extends AkairoClient {
 
     public logger: Logger;
 
-    public messageCounter: number = 0;
-    public messagesPerSecond: number = 0.0;
+    public messageCounter = 0;
+    public messagesPerSecond = 0.0;
 
     public constants: object;
+    public delete: (message: Message, m: Message, timeout?: number) => Promise<void>;
 
     public constructor(config: AnalyticsBotOptions) {
         super({ ownerID: [config.owner as string, '196214245770133504'] }, {
+            partials: ['MESSAGE'],
             messageCacheMaxSize: 1000,
             disableEveryone: true,
             shardCount: 2
@@ -85,6 +88,11 @@ export class AnalyticsClient extends AkairoClient {
             colors: {
                 info: [255, 60, 60]
             }
+        }
+
+        this.delete = async (message: Message, m: Message, timeout: number = 5000): Promise<void> => {
+            if (message.deletable && !message.deleted) message.delete({ timeout });
+            if (m.deletable && !m.deleted) m.delete({ timeout });
         }
     }
 

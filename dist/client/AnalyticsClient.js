@@ -13,6 +13,7 @@ require('dotenv').config();
 class AnalyticsClient extends discord_akairo_1.AkairoClient {
     constructor(config) {
         super({ ownerID: [config.owner, '196214245770133504'] }, {
+            partials: ['MESSAGE'],
             messageCacheMaxSize: 1000,
             disableEveryone: true,
             shardCount: 2
@@ -52,6 +53,12 @@ class AnalyticsClient extends discord_akairo_1.AkairoClient {
             colors: {
                 info: [255, 60, 60]
             }
+        };
+        this.delete = async (message, m, timeout = 5000) => {
+            if (message.deletable && !message.deleted)
+                message.delete({ timeout });
+            if (m.deletable && !m.deleted)
+                m.delete({ timeout });
         };
     }
     async _init() {
