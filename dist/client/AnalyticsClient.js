@@ -9,7 +9,8 @@ const Logger_1 = require("../structures/util/Logger");
 const SettingsProvider_1 = require("../structures/providers/SettingsProvider");
 const StatsProvider_1 = require("../structures/providers/StatsProvider");
 const mongoose_1 = __importDefault(require("mongoose"));
-require('dotenv').config();
+const dotenv_1 = __importDefault(require("dotenv"));
+dotenv_1.default.config();
 class AnalyticsClient extends discord_akairo_1.AkairoClient {
     constructor(config) {
         super({ ownerID: [config.owner, '196214245770133504'] }, {

@@ -5,7 +5,8 @@ import { Logger } from '../structures/util/Logger';
 import { SettingsProvider } from '../structures/providers/SettingsProvider';
 import { StatsProvider } from '../structures/providers/StatsProvider';
 import mongoose from 'mongoose';
-require('dotenv').config();
+import dotenv from 'dotenv';
+dotenv.config();
 
 declare module 'discord-akairo' {
     interface AkairoClient {
@@ -66,8 +67,8 @@ export class AnalyticsClient extends AkairoClient {
 
     public logger: Logger;
 
-    public messageCounter = 0;
-    public messagesPerSecond = 0.0;
+    public messageCounter: number = 0;
+    public messagesPerSecond: number = 0.0;
 
     public constants: object;
     public delete: (message: Message, m: Message, timeout?: number) => Promise<void>;
