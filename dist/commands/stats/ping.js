@@ -14,10 +14,10 @@ class PingCommand extends discord_akairo_1.Command {
         });
     }
     async exec(message) {
-        let e1 = new discord_js_1.MessageEmbed().setColor([155, 200, 200]).setDescription('Pinging...');
+        const e1 = new discord_js_1.MessageEmbed().setColor([255, 60, 60]).setDescription('Pinging...');
         const m = await message.util.send(e1);
         const embed = new discord_js_1.MessageEmbed()
-            .setColor([155, 200, 200])
+            .setColor([255, 60, 60])
             .setDescription(`🏓 **${Math.round(this.client.ws.ping).toString()}**ms`);
         return m.edit(embed);
     }
