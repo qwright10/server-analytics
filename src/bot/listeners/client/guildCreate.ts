@@ -27,7 +27,7 @@ export default class GuildCreateListener extends Listener {
             name: guild.name,
             prefix: process.env.prefix,
             blacklist: []
-        }, async (err: any): Promise<Message | void> => {
+        }, async (err: Error | null): Promise<Message | void> => {
             if (err) {
                 this.client.logger.error(`Settings for ${guild.name} (${guild.id}) - ${guild.owner!.user.tag} couldn't be created`);
                 const embed = new MessageEmbed()
@@ -48,7 +48,7 @@ export default class GuildCreateListener extends Listener {
             commands: {},
             reactions: {},
             messages: 0
-        }, async (err: any): Promise<void> => {
+        }, async (err: Error | null): Promise<void> => {
             if (err) this.client.logger.error(`Stats for ${guild.name} (${guild.id}) - ${guild.owner!.user.tag} couldn't be created ${err}`);
         });
     }
