@@ -8,7 +8,7 @@ export default class EvalCommand extends Command {
 
     public lastResult: any = null
 
-    private readonly _sensitivePattern!: any;
+    private readonly _sensitivePattern!: RegExp;
 
     public constructor() {
         super('eval', {
