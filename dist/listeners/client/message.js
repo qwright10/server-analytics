@@ -24,7 +24,7 @@ class MessageListener extends discord_akairo_1.Listener {
             return;
         const emojiRegex = /<(?:a)?:(?:\w{2,32}):(\d{17,19})>?/g;
         let emoji;
-        let matches = message.content.match(emojiRegex);
+        const matches = message.content.match(emojiRegex);
         if (matches && matches.every(v => emojiRegex.test(v))) {
             emoji = message.guild.emojis.get(matches[1]);
             message.content.replace(emojiRegex, '');
