@@ -56,8 +56,8 @@ export default class EvalCommand extends Command {
         const split = inspected.split('\n');
         const last = inspected.length - 1;
         const prependPart = inspected[0] !== '{' && inspected[0] !== '[' && inspected[0] !== "'" ? split[0] : inspected[0];
-		const appendPart = inspected[last] !== '}' && inspected[last] !== ']' && inspected[last] !== "'" ? split[split.length - 1] : inspected[last];
-		const prepend = `\`\`\`javascript\n${prependPart}\n`;
+        const appendPart = inspected[last] !== '}' && inspected[last] !== ']' && inspected[last] !== "'" ? split[split.length - 1] : inspected[last];
+        const prepend = `\`\`\`javascript\n${prependPart}\n`;
         const append = `\n${appendPart}\n\`\`\``;
         if (input) {
             return Util.splitMessage(stripIndents`
@@ -77,7 +77,7 @@ export default class EvalCommand extends Command {
     }
 
     private get sensitivePattern(): any {
-        if (!this.sensitivePattern) {
+        if (!this._sensitivePattern) {
             const token = this.client.token!.split('').join('[^]{0,2}');
             const revToken = this.client.token!.split('').reverse().join('[^]{0,2}');
             Object.defineProperty(this, '_sensitivePattern', { value: new RegExp(`${token}|${revToken}`, 'g') });

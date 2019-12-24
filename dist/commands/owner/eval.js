@@ -71,7 +71,7 @@ class EvalCommand extends discord_akairo_1.Command {
         `, { maxLength: 1900, prepend, append });
     }
     get sensitivePattern() {
-        if (!this.sensitivePattern) {
+        if (!this._sensitivePattern) {
             const token = this.client.token.split('').join('[^]{0,2}');
             const revToken = this.client.token.split('').reverse().join('[^]{0,2}');
             Object.defineProperty(this, '_sensitivePattern', { value: new RegExp(`${token}|${revToken}`, 'g') });
