@@ -365,8 +365,12 @@
         "version": "a0d360a4bf63c975abcb196a59279290841e02bf3ae6fe6cc0086105fee29840",
         "signature": "78c175fa3e6e0571a652aa5f6055911b88111c1b6ef36157154fd202a100d74f"
       },
+      "../node_modules/dotenv/types/index.d.ts": {
+        "version": "c9ae0b351a07b52f29a28e869d8c7c8d29743bbb5eeddc7c0b5b2a69a2450528",
+        "signature": "c9ae0b351a07b52f29a28e869d8c7c8d29743bbb5eeddc7c0b5b2a69a2450528"
+      },
       "../src/bot/client/analyticsclient.ts": {
-        "version": "1ddea56a25a0905e17537b33e57da68567b8b77ef6962b60b03cd948d61f7b85",
+        "version": "53d5007c92e24ef636a8ed842aedd6a5e2044ff8513397fa8c76a6bf2f90605c",
         "signature": "1ca542edcc49aeb846347ac2b7144de729dab9deee90dd84e9d7b55df1d66bee"
       },
       "../src/bot/bot.ts": {
@@ -378,7 +382,7 @@
         "signature": "3b93231babdb3ee9470a7e6103e48bf6585c4185f96941c08a77e097f8f469ae"
       },
       "../src/bot/commands/owner/eval.ts": {
-        "version": "bc92d94155576a22f7f2edea7ce82eb34ce512cdacf28fc0cd5c4ed8fe67e683",
+        "version": "1b3399bb6b2b5dad3878cc81b6e516f32799edbee20cfc90211253961e80f748",
         "signature": "8685a55b01026b025aff56f6fc50bb90d26d974a374b34fa2d5ded8bf5e13005"
       },
       "../src/bot/commands/owner/exec.ts": {
@@ -390,7 +394,7 @@
         "signature": "e1efaea484a61291a58cc78e807958702942a92ed949606bff6c02f3f0f55a40"
       },
       "../src/bot/commands/stats/about.ts": {
-        "version": "52f940fb487a10211ffd684a5ad970716b2b547c352a8414e34be81c0bc5b354",
+        "version": "662db31c9684ff72e90e5e26d815215af567657a99c4b24ba65023040dcba12c",
         "signature": "dfb3d1b327541992a76813c5b75f1ff4099c484c6ead073af4d41a77aaf9ed23"
       },
       "../src/bot/commands/stats/info.ts": {
@@ -406,7 +410,7 @@
         "signature": "3a75fbfae3828c3e57b7a6be6c44e1b073d4e7f40136d492a0f284de7eac9e47"
       },
       "../src/bot/listeners/client/guildcreate.ts": {
-        "version": "265a1eb1859e1a70809887a99d87c5b4b0336efafff38aa2c1df8d69df05a9bf",
+        "version": "1dd0dd90d6bf908cf8afa617b61124636ed414eb428a0803b55628aefc01442c",
         "signature": "8189416edd370533455a74d399fbe6874f6f76c3a476970e9ddb2456cb1eeae2"
       },
       "../node_modules/@types/node-emoji/index.d.ts": {
@@ -414,7 +418,7 @@
         "signature": "a142bf74a83068d1b29064bb590971a28077068abfa90ec412effad9e5b28ceb"
       },
       "../src/bot/listeners/client/message.ts": {
-        "version": "7a3b15a9f5d9a33e1200e9ab353e589d658907be8889eb4ea1ab2c658a02331b",
+        "version": "8a93bea2a3b776f142f1f5bbabf93bba742c11be1f78e9f259bd5ca7be32174e",
         "signature": "457942957e8890ba586156f96aa2d024997395ca202e96fe3db9f4ec2c147387"
       },
       "../src/bot/listeners/client/messagereactionadd.ts": {
@@ -1140,6 +1144,13 @@
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
+      "../node_modules/dotenv/types/index.d.ts": [
+        "../node_modules/@types/node/ts3.2/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
       "../src/bot/client/analyticsclient.ts": [
         "../node_modules/discord-akairo/src/index.d.ts",
         "../node_modules/discord.js/typings/index.d.ts",
@@ -1148,6 +1159,7 @@
         "../src/bot/structures/providers/settingsprovider.ts",
         "../src/bot/structures/providers/statsprovider.ts",
         "../node_modules/@types/mongoose/index.d.ts",
+        "../node_modules/dotenv/types/index.d.ts",
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
         "../node_modules/@types/node/util.d.ts",
@@ -1978,6 +1990,11 @@
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
+      "../src/bot/commands/stats/about.ts": [
+        "../node_modules/@types/moment-duration-format/index.d.ts",
+        "../node_modules/discord.js/typings/index.d.ts",
+        "../node_modules/discord-akairo/src/index.d.ts"
+      ],
       "../src/bot/commands/stats/info.ts": [
         "../node_modules/discord.js/typings/index.d.ts",
         "../node_modules/discord-akairo/src/index.d.ts"
@@ -2037,10 +2054,12 @@
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "../src/bot/commands/stats/about.ts": [
-        "../node_modules/@types/moment-duration-format/index.d.ts",
-        "../node_modules/discord.js/typings/index.d.ts",
-        "../node_modules/discord-akairo/src/index.d.ts"
+      "../node_modules/dotenv/types/index.d.ts": [
+        "../node_modules/@types/node/ts3.2/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
       ]
     },
     "semanticDiagnosticsPerFile": [
@@ -2135,12 +2154,12 @@
       "../src/bot/structures/providers/settingsprovider.ts",
       "../src/bot/structures/models/stats.ts",
       "../src/bot/structures/providers/statsprovider.ts",
-      "../src/bot/client/analyticsclient.ts",
       "../src/bot/bot.ts",
       "../node_modules/@types/common-tags/index.d.ts",
       "../src/bot/commands/owner/eval.ts",
       "../src/bot/commands/owner/exec.ts",
       "../node_modules/@types/moment-duration-format/index.d.ts",
+      "../src/bot/commands/stats/about.ts",
       "../src/bot/commands/stats/info.ts",
       "../src/bot/commands/stats/ping.ts",
       "../src/bot/inhibitors/blacklist.ts",
@@ -2215,7 +2234,8 @@
       "../node_modules/@types/color-name/index.d.ts",
       "../node_modules/@types/node-fetch/externals.d.ts",
       "../node_modules/@types/node-fetch/index.d.ts",
-      "../src/bot/commands/stats/about.ts"
+      "../node_modules/dotenv/types/index.d.ts",
+      "../src/bot/client/analyticsclient.ts"
     ]
   },
   "version": "3.6.3"
