@@ -18,29 +18,38 @@ export default class GuildCreateListener extends Listener {
             await Settings.deleteOne({ guild: guild.id });
         }
 
+        if ((await Stats.count({ id: guild.id })) > 1) {
+            await Stats.deleteOne({ id: guild.id });
+        }
+
         await Settings.create({
             id: guild.id,
             name: guild.name,
             prefix: process.env.prefix,
             blacklist: []
-        }, async (err: any): Promise<Message> => {
-            if (err) this.client.logger.error(`Settings for ${guild.name} (${guild.id}) - ${guild.owner!.user.tag} couldn't be created`);
-            const embed = new MessageEmbed()
-                .setColor([155, 200, 200])
-                .setAuthor(this.client.user!.tag, this.client.user!.displayAvatarURL())
-                .setDescription('Something went wrong. Try kicking and re-adding me.')
-                .setTimestamp(Date.now());
+        }, async (err: any): Promise<Message | void> => {
+            if (err) {
+                this.client.logger.error(`Settings for ${guild.name} (${guild.id}) - ${guild.owner!.user.tag} couldn't be created`);
+                const embed = new MessageEmbed()
+                    .setColor([155, 200, 200])
+                    .setAuthor(this.client.user!.tag, this.client.user!.displayAvatarURL())
+                    .setDescription('Something went wrong. Try kicking and re-adding me.')
+                    .setTimestamp(Date.now());
 
-            return guild.owner!.send(embed);
+                const owner = await this.client.users.fetch(guild.ownerID);
+                return owner!.send(embed);
+            }
         });
 
         await Stats.create({
             id: guild.id,
             name: guild.name,
             emojis: {},
+            commands: {},
+            reactions: {},
             messages: 0
         }, async (err: any): Promise<void> => {
-            if (err) this.client.logger.error(`Stats for ${guild.name} (${guild.id}) - ${guild.owner!.user.tag} couldn't be created`);
+            if (err) this.client.logger.error(`Stats for ${guild.name} (${guild.id}) - ${guild.owner!.user.tag} couldn't be created ${err}`);
         });
     }
 }

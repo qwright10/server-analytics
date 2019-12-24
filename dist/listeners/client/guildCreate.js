@@ -17,29 +17,36 @@ class GuildCreateListener extends discord_akairo_1.Listener {
             await this.client.settings.clear(guild);
             await Settings_1.Settings.deleteOne({ guild: guild.id });
         }
+        if ((await Stats_1.Stats.count({ id: guild.id })) > 1) {
+            await Stats_1.Stats.deleteOne({ id: guild.id });
+        }
         await Settings_1.Settings.create({
             id: guild.id,
             name: guild.name,
             prefix: process.env.prefix,
             blacklist: []
         }, async (err) => {
-            if (err)
+            if (err) {
                 this.client.logger.error(`Settings for ${guild.name} (${guild.id}) - ${guild.owner.user.tag} couldn't be created`);
-            const embed = new discord_js_1.MessageEmbed()
-                .setColor([155, 200, 200])
-                .setAuthor(this.client.user.tag, this.client.user.displayAvatarURL())
-                .setDescription('Something went wrong. Try kicking and re-adding me.')
-                .setTimestamp(Date.now());
-            return guild.owner.send(embed);
+                const embed = new discord_js_1.MessageEmbed()
+                    .setColor([155, 200, 200])
+                    .setAuthor(this.client.user.tag, this.client.user.displayAvatarURL())
+                    .setDescription('Something went wrong. Try kicking and re-adding me.')
+                    .setTimestamp(Date.now());
+                const owner = await this.client.users.fetch(guild.ownerID);
+                return owner.send(embed);
+            }
         });
         await Stats_1.Stats.create({
             id: guild.id,
             name: guild.name,
             emojis: {},
+            commands: {},
+            reactions: {},
             messages: 0
         }, async (err) => {
             if (err)
-                this.client.logger.error(`Stats for ${guild.name} (${guild.id}) - ${guild.owner.user.tag} couldn't be created`);
+                this.client.logger.error(`Stats for ${guild.name} (${guild.id}) - ${guild.owner.user.tag} couldn't be created ${err}`);
         });
     }
 }
